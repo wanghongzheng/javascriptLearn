@@ -1,7 +1,92 @@
 <html>
 <head>
+<title>目录</title>
+<style>
+body{
+	border:12px solid #EEE;
+    width: 350px;
+    background: #FFF;
+    border-radius: 10px;
+    margin: 10px auto 0;
+    padding: 5px 5px 4px;
+	height:500px;}
+a:link{
+	color:#fff;
+	text-decoration:none;
+	color:#fff;
+}	
+a:visited {color: #fff} 
+.menu{
+	height:500px;
+	position:relative;
+	overflow: auto;
+}
+ul,li {
+	list-style:none;
+	float:left;
+    margin: 0px;
+    padding: 0px;
+}
+ul li {
+	background:#09F;
+	width:100%;
+	line-height:35px;
+}
+ul li li {
+	background:#7CF;
+	width:100%;
+	border:none;
+	border-bottom:1px solid #fff;
+	line-height:30px;
+	font-size:0.75rem;
+    transition: opacity 2s;	//主要代码
+}
+li a {margin-left:10px;}
+
+ul li li:hover {
+	opacity: 1;
+	color:blue;
+	box-shadow:#09F 0px 0px 10px inset;
+}
+ul li li:hover a{
+	color:blue;
+}
+
+</style>
 </head>
 <body>
-目录页
+<ul class="menu">
+	<li><a href="#">第一课</a>
+		<ul>
+			<li class="active"><a href="#">1)控制Div属性</a></li>
+			<li ><a href="#">2)网页换肤</a></li>
+			<li><a href="#">3)函数接收参数并弹出</a></li>
+			<li><a href="#">4)用循环将三个DIv变成红色</a></li>
+			<li><a href="#">5)鼠标移入移出改变样式</a></li>
+			<li><a href="#">6)记住密码提示框</a></li>
+		</ul>
+	</li>
+	<li><a href="#">第二课</a>
+		<ul>
+			<li><a href="#">1)控制Div属性</a></li>
+			<li><a href="#">2)网页换肤</a></li>
+			<li><a href="#">3)函数接收参数并弹出</a></li>
+			<li><a href="#">4)用循环将三个DIv变成红色</a></li>
+			<li><a href="#">5)鼠标移入移出改变样式</a></li>
+			<li><a href="#">6)记住密码提示框</a></li>
+		</ul>
+	</li>
+	<li><a href="#">第三课</a>
+		<ul>
+			<li><a href="#">1)控制Div属性</a></li>
+			<li><a href="#">2)网页换肤</a></li>
+			<li><a href="#">3)函数接收参数并弹出</a></li>
+			<li><a href="#">4)用循环将三个DIv变成红色</a></li>
+			<li><a href="#">5)鼠标移入移出改变样式</a></li>
+			<li><a href="#">6)记住密码提示框</a></li>
+		</ul>
+	</li>
+		
+</ul>
 </body>
 </html>
