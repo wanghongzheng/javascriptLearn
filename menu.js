@@ -40,15 +40,12 @@ CreateList.prototype = {
 			this.oWrap.style.height = "500px";
 			this.oWrap.style.overflow = "auto";
 		    document.body.appendChild(this.oWrap);
-			console.info("测试");
-			console.info(this.oWrap);
 		}
 		
 	},
 	click:function(){
 		this.oWrap.onclick = function(event) {
 			var objects = document.getElementsByClassName("sub_item_box");
-			console.info(objects);
 			for(var i=0;i<objects.length;i++){
 				var item = objects[i];
 				item.style.height = "0px";
