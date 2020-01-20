@@ -1,5 +1,4 @@
 function CreateList(){
-	alert("走");
 	this.oWrap = document.createElement("div");
 	this.copyright = document.createElement("div");
 	this.initialize.apply(this,arguments);
