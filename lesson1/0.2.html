@@ -1,0 +1,174 @@
+<html>
+<head>
+<style>
+ul,li {list-style:none;float:left;margin: 0px;padding: 0px;}
+ul li{border:1px solid #fff;background:green;color:#fff;}
+ul li a{float: left;padding: 5px 15px;}
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 18px;
+    margin-right: 10px;
+    position: relative;
+}
+ 
+#status1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: green;
+    width: 100%;
+    height: 100%;
+    border: 1px solid green;
+    border-radius: 4px;
+}
+ 
+#status1:checked::before {
+    content: "\2713";
+    background-color: green;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 1px solid #7D7D7D;
+    border-radius:4px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#status1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: green;
+    width: 100%;
+    height: 100%;
+    border: 1px solid green;
+    border-radius: 4px;
+}
+ 
+#status1:checked::before {
+    content: "\2713";
+    background-color: green;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 1px solid #7D7D7D;
+    border-radius:4px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+#status2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: red;
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+    border-radius: 4px;
+}
+ 
+#status2:checked::before {
+    content: "\2713";
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 1px solid #7D7D7D;
+    border-radius:4px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#status3::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: black;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+ 
+#status3:checked::before {
+    content: "\2713";
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 1px solid #7D7D7D;
+    border-radius:4px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+.current{
+	background:#A3C5A8;
+	height:100%;
+	width:100%;
+}
+</style>
+ 
+<script>  
+function selectCheckOne(obj){
+	alert(obj.id);
+    var checks = document.getElementsByName("statement");
+    if(obj.checked){
+        for( var i=0;i<checks.length;i++){
+			checks[i].checked=false;
+        }
+        obj.checked=true;
+    }else{
+        for( var i=0;i<checks.length;i++){
+        checks[i].checked=false;
+        }
+    }
+	var skn = document.getElementsByClass("current");
+	var myBackground = "green";
+	if(obj.id == "status1"){
+		myBackground = "green"
+	}else if(obj.id == "status2"){
+		myBackground = "red";
+	}else{
+		myBackground = "black";
+	}
+	skn.style.background = myBackground;
+}
+
+</script>
+</head>
+<body class="current">
+<div>
+	<input type="checkbox" name="statement" id="status1" onclick="selectCheckOne(this)" checked>
+	<input type="checkbox" name="statement" id="status2" onclick="selectCheckOne(this)">
+	<input type="checkbox" name="statement" id="status3" onclick="selectCheckOne(this)">
+</div>
+<div>
+	<ul>
+		<li><a>新闻</a></li>
+		<li><a>娱乐</a></li>
+		<li><a>体育</a></li>
+		<li><a>电影</a></li>
+		<li><a>音乐</a></li>
+		<li><a>旅游</a></li>
+	</ul>
+</div>
+</body>
+</html>
