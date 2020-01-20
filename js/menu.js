@@ -47,8 +47,8 @@ CreateList.prototype = {
 			var objects = document.getElementsByClassName("sub_item_box");
 			for(var i=0;i<objects.length;i++){
 				var item = objects[i];
+				console.info(item.style.height);
 				item.style.height = "0px";
-					console.log(item);
 			}
 			
 			var oEv, oTarget, oParent, i;
