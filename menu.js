@@ -58,9 +58,12 @@ CreateList.prototype = {
 			var oEv, oTarget, oParent, i;
 			oEv = event || window.event;
 			oTarget = oEv.target || oEv.srcElement;
-			//oParent = document.querySelector('li div.sub_item_box');
-			oParent = oTarget.parentElement || oTarget.parentNode;
-			//	oParent = document.querySelector('li div.sub_item_box ul');
+			if(oTarget.tagName.toUpperCase() == "A"){
+				oParent = oTarget.parentElement || oTarget.parentNode;
+			}else if(oTarget.tagName.toUpperCase() == "LI"){
+				oParent = oTarget;
+			}
+			
 			var divParent = oParent.querySelector('div.sub_item_box');
 			var ulParent = divParent.querySelector('ul');
 			oParent.height = function() {
@@ -68,62 +71,9 @@ CreateList.prototype = {
 				for(i = 0;i < ulParent.children.length; i++) iHeight += ulParent.children[i].offsetHeight;
 				return iHeight
 			}();
-			console.info(oParent);
-				divParent.style.height = oParent.height;
-				divParent.style.overflow = "auto";
-				divParent.style.MaxHeight = "300px";
-			if((oTarget.tagName.toUpperCase() == "A") || (oTarget.tagName.toUpperCase() == "LI")) {
-				/*var aSiblings = that.siblings(oParent), count, i;
-				for(count = i = 0; i < aSiblings.length; i++) {
-					that.startMove(aSiblings[i], oTarget.offsetHeight, "buffer", function() {
-						this.children[0].className = "";
-						if(++count == aSiblings.length) {
-							if(oParent.offsetHeight == oTarget.offsetHeight) {
-								oTarget.className = "current";
-								that.startMove(oParent, oParent.height, "flex")
-							}
-							else {
-								that.startMove(oParent, oTarget.offsetHeight, "buffer", function() {
-									oTarget.className = ""	
-								})
-							}								
-						}	
-					})
-				}
-				console.info(oParent);
-				divParent.style.height = oParent.height;
-				divParent.style.overflow = "auto";*/
-			}
+			divParent.style.height = oParent.height;
+			divParent.style.overflow = "auto";
+			divParent.style.MaxHeight = "300px";
 		}
-	},
-		startMove: function(obj, iTarget, type, callback) {
-		var that = this;
-		clearInterval(obj.timer);
-		obj.iSpeed = 0;
-		obj.timer = setInterval(function() {
-			that[type].call(that, obj, iTarget, callback)
-		}, 30)
-	},
-	buffer: function(obj, iTarget, callback) {
-		obj.iSpeed = (iTarget - obj.offsetHeight) / 5;
-		obj.iSpeed = obj.iSpeed > 0 ? Math.ceil(obj.iSpeed) : Math.floor(obj.iSpeed);
-		obj.offsetHeight == iTarget ? (clearInterval(obj.timer), callback && callback.call(obj)) : obj.style.height = obj.offsetHeight + obj.iSpeed + "px"
-	},
-	flex: function(obj, iTarget, callback) {
-		obj.iSpeed += (iTarget - obj.offsetHeight) / 6;
-		obj.iSpeed *= 0.75;
-		if(Math.abs(iTarget - obj.offsetHeight) <= 1 && Math.abs(obj.iSpeed) <= 1) {
-			clearInterval(obj.timer);
-			obj.style.height = iTarget + "px";
-			callback && callback.call(obj)
-		}
-		else {
-			obj.style.height = obj.offsetHeight + obj.iSpeed + "px"
-		}
-	},
-	siblings: function(element) {
-		var aTmp = [], oParent = element.parentElement || element.parentNode, i;
-		for(i = 0; i < oParent.children.length; i++) element != oParent.children[i] && aTmp.push(oParent.children[i]);
-		return aTmp
 	}
 }
